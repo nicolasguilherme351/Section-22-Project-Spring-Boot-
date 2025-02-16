@@ -10,27 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.educandoweb.course.entities.Book;
-import com.educandoweb.course.entities.User;
 import com.educandoweb.course.services.BookService;
-import com.educandoweb.course.services.UserService;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/books")
+public class BookResource {
 
 	@Autowired
-	private UserService service;
+	private BookService service;
 
-	@GetMapping
-	public ResponseEntity<List<User>> findAll() {
-		List<User> list = service.findAll();
+	@GetMapping(value = "/aa")
+	private ResponseEntity<List<Book>> findAll() {
+		List<Book> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
-
+	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable long id) {
-		User obj = service.findById(id);
-		return ResponseEntity.ok().body(obj);
+	private Book findById(@PathVariable long id) {
+		return service.findById(id);
 	}
 
 }
