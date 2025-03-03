@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.educandoweb.course.entities.Book;
 import com.educandoweb.course.entities.User;
-import com.educandoweb.course.services.BookService;
 import com.educandoweb.course.services.UserService;
 
 @RestController

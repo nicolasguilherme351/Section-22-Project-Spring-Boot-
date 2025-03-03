@@ -1,84 +1,94 @@
 package com.educandoweb.course.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "tb_Book")
-public class Book implements Serializable {
+@Table(name = "tb_product")
+public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Double price;
 	private String name;
-	private String author;
+	private String description;
+	private Double price;
+	private String imgUrl;
 
-	public Book() {
+	@Transient
+	private Set<Category> categories = new HashSet<>();
+
+	public Product() {
+
 	}
-	
-	
-	public Book(Long id, Double price, String name, String author) {
+
+	public Product(Long id, String name, String description, Double price, String imgUrl) {
 		super();
 		this.id = id;
-		this.price = price;
 		this.name = name;
-		this.author = author;
+		this.description = description;
+		this.price = price;
+		this.imgUrl = imgUrl;
 	}
-
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-	public Double getPrice() {
-		return price;
-	}
-
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-	public String getAuthor() {
-		return author;
+	public String getDescription() {
+		return description;
 	}
 
-
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	public Set<Category> getCategories() {
+		return categories;
+	}
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -88,11 +98,10 @@ public class Book implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Book other = (Book) obj;
+		Product other = (Product) obj;
 		return Objects.equals(id, other.id);
 	}
 
 	
 	
-
 }
