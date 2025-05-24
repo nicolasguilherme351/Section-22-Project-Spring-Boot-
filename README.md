@@ -26,13 +26,14 @@ Pré-requisitos: Java 11
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
+git clone https://github.com/nicolasguilherme351/Section-22-Project-Spring-Boot-
 
-# entrar na pasta do projeto back end
-cd backend
+# entrar na pasta do projeto 
+cd Section-22-Project-Spring-Boot-
 
 # executar o projeto
 ./mvnw spring-boot:run
+Pode-se também executar pelo Spring Tool Suite pelo botão de Run nome_da_aplicação.
 
 ```
 ## Agradecimentos
